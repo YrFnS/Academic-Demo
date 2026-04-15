@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+  --color-oxford-blue: #0A1128;
+  --color-oxford-light: #162044;
+  --color-academic-gold: #D4AF37;
+  --color-paper: #F8F9FA;
+  
+  --animate-bounce-slow: bounce-slow 3s infinite ease-in-out;
+  
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-paper text-slate-900 antialiased selection:bg-academic-gold/30;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+/* Subtle dot pattern for premium light theme */
+.bg-pattern {
+  background-color: #F8F9FA;
+  background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Premium Mesh Gradient Background */
+.bg-mesh {
+  background-color: #F8F9FA;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210, 100%, 95%, 1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(45, 100%, 90%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(210, 100%, 95%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(45, 100%, 90%, 0.5) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism Utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-lg border border-white/40 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .glass-sidebar {
+    @apply bg-oxford-blue/95 backdrop-blur-2xl border-e border-white/5 shadow-2xl;
+  }
+}
+
+/* MapLibre Popup Customization */
+.maplibregl-popup-content {
+  @apply rounded-2xl shadow-2xl border border-slate-200 p-4 bg-white/95 backdrop-blur-xl;
+}
+.maplibregl-popup-close-button {
+  @apply text-slate-400 hover:text-slate-900 hover:bg-slate-100 rounded-full w-6 h-6 flex items-center justify-center top-3 right-3 text-lg transition-colors;
+}
+.maplibregl-popup-tip {
+  @apply border-t-white/95;
+}
+
+/* Custom Scrollbar */
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Global scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
