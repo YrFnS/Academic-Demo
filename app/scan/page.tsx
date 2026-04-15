@@ -39,7 +39,7 @@ export default function ScanPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-8">
         <div className="flex items-center gap-4">
-          <Link href="/" className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-slate-50 transition-colors">
+          <Link href="/" prefetch={false} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-slate-50 transition-colors">
             <ArrowLeft className="w-6 h-6 rtl:rotate-180" />
           </Link>
           <h1 className="text-2xl font-bold tracking-tight text-slate-50">{t('scan.title')}</h1>
@@ -120,6 +120,7 @@ export default function ScanPage() {
               <div className="pt-8">
                 <Link 
                   href="/"
+                  prefetch={false}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-50 font-medium rounded-xl transition-all"
                 >
                   {t('scan.back')}

@@ -24,16 +24,16 @@ import {
   TrendingUp,
   Info
 } from 'lucide-react';
-import { 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip as RechartsTooltip, 
-  ResponsiveContainer,
-  Cell
-} from 'recharts';
+import dynamic from 'next/dynamic';
+
+const BarChart = dynamic(() => import('recharts').then(m => m.BarChart), { ssr: false });
+const Bar = dynamic(() => import('recharts').then(m => m.Bar), { ssr: false });
+const XAxis = dynamic(() => import('recharts').then(m => m.XAxis), { ssr: false });
+const YAxis = dynamic(() => import('recharts').then(m => m.YAxis), { ssr: false });
+const CartesianGrid = dynamic(() => import('recharts').then(m => m.CartesianGrid), { ssr: false });
+const RechartsTooltip = dynamic(() => import('recharts').then(m => m.Tooltip), { ssr: false });
+const ResponsiveContainer = dynamic(() => import('recharts').then(m => m.ResponsiveContainer), { ssr: false });
+const Cell = dynamic(() => import('recharts').then(m => m.Cell), { ssr: false });
 
 const PROCUREMENT_DATA = [
   { category: 'IT Hardware', spent: 120000, budget: 150000 },

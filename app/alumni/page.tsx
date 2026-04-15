@@ -23,18 +23,18 @@ import {
   HandCoins,
   Building2
 } from 'lucide-react';
-import { 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip as RechartsTooltip, 
-  ResponsiveContainer,
-  Cell,
-  LineChart,
-  Line
-} from 'recharts';
+import dynamic from 'next/dynamic';
+
+const BarChart = dynamic(() => import('recharts').then(m => m.BarChart), { ssr: false });
+const Bar = dynamic(() => import('recharts').then(m => m.Bar), { ssr: false });
+const XAxis = dynamic(() => import('recharts').then(m => m.XAxis), { ssr: false });
+const YAxis = dynamic(() => import('recharts').then(m => m.YAxis), { ssr: false });
+const CartesianGrid = dynamic(() => import('recharts').then(m => m.CartesianGrid), { ssr: false });
+const RechartsTooltip = dynamic(() => import('recharts').then(m => m.Tooltip), { ssr: false });
+const ResponsiveContainer = dynamic(() => import('recharts').then(m => m.ResponsiveContainer), { ssr: false });
+const Cell = dynamic(() => import('recharts').then(m => m.Cell), { ssr: false });
+const LineChart = dynamic(() => import('recharts').then(m => m.LineChart), { ssr: false });
+const Line = dynamic(() => import('recharts').then(m => m.Line), { ssr: false });
 
 const DONATION_DATA = [
   { year: '2020', amount: 1.2 },
