@@ -30,61 +30,68 @@ import {
   PackageSearch
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { LucideIcon } from 'lucide-react';
+
+interface NavItem {
+  icon: LucideIcon;
+  label: string;
+  href: string;
+}
+
+const NAV_ITEMS: Record<string, NavItem[]> = {
+  student: [
+    { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
+    { icon: BookOpen, label: 'nav.courses', href: '/courses' },
+    { icon: GraduationCap, label: 'nav.grades', href: '/grades' },
+    { icon: Calendar, label: 'nav.schedule', href: '/schedule' },
+    { icon: FileCheck, label: 'nav.quizzes', href: '/quizzes' },
+    { icon: CreditCard, label: 'nav.financials', href: '/financials' },
+    { icon: BookOpen, label: 'nav.library', href: '/library' },
+    { icon: Home, label: 'nav.housing', href: '/housing' },
+    { icon: Briefcase, label: 'nav.careers', href: '/careers' },
+    { icon: ClipboardCheck, label: 'nav.admissions', href: '/admissions' },
+    { icon: LifeBuoy, label: 'nav.support', href: '/support' },
+    { icon: Microscope, label: 'nav.research', href: '/research' },
+    { icon: HeartPulse, label: 'nav.health', href: '/health' },
+    { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
+    { icon: MapPin, label: 'Campus Map', href: '/map' },
+    { icon: Users, label: 'nav.scan', href: '/scan' },
+  ],
+  lecturer: [
+    { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
+    { icon: BookOpen, label: 'nav.lectures', href: '/lectures' },
+    { icon: FileCheck, label: 'nav.gradebook', href: '/gradebook' },
+    { icon: Users, label: 'nav.attendance', href: '/attendance' },
+    { icon: FileCheck, label: 'nav.quizzes', href: '/quizzes' },
+    { icon: Microscope, label: 'nav.research', href: '/research' },
+    { icon: UserCheck, label: 'nav.faculty_hr', href: '/faculty-hr' },
+    { icon: Gavel, label: 'nav.governance', href: '/governance' },
+    { icon: HeartPulse, label: 'nav.health', href: '/health' },
+    { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
+    { icon: PackageSearch, label: 'nav.procurement', href: '/procurement' },
+    { icon: MapPin, label: 'Campus Map', href: '/map' },
+  ],
+  admin: [
+    { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
+    { icon: BarChart3, label: 'nav.analytics', href: '/analytics' },
+    { icon: Users, label: 'nav.staff', href: '/staff' },
+    { icon: FileCheck, label: 'nav.approvals', href: '/approvals' },
+    { icon: Microscope, label: 'nav.research', href: '/research' },
+    { icon: UserCheck, label: 'nav.faculty_hr', href: '/faculty-hr' },
+    { icon: Gavel, label: 'nav.governance', href: '/governance' },
+    { icon: HeartPulse, label: 'nav.health', href: '/health' },
+    { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
+    { icon: PackageSearch, label: 'nav.procurement', href: '/procurement' },
+    { icon: MapPin, label: 'Campus Map', href: '/map' },
+  ]
+};
 
 export function Shell({ children }: { children: React.ReactNode }) {
   const { role, setRole, language, setLanguage, t } = useAppContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const pathname = usePathname();
 
-  const navItems = {
-    student: [
-      { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
-      { icon: BookOpen, label: 'nav.courses', href: '/courses' },
-      { icon: GraduationCap, label: 'nav.grades', href: '/grades' },
-      { icon: Calendar, label: 'nav.schedule', href: '/schedule' },
-      { icon: FileCheck, label: 'nav.quizzes', href: '/quizzes' },
-      { icon: CreditCard, label: 'nav.financials', href: '/financials' },
-      { icon: BookOpen, label: 'nav.library', href: '/library' },
-      { icon: Home, label: 'nav.housing', href: '/housing' },
-      { icon: Briefcase, label: 'nav.careers', href: '/careers' },
-      { icon: ClipboardCheck, label: 'nav.admissions', href: '/admissions' },
-      { icon: LifeBuoy, label: 'nav.support', href: '/support' },
-      { icon: Microscope, label: 'nav.research', href: '/research' },
-      { icon: HeartPulse, label: 'nav.health', href: '/health' },
-      { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
-      { icon: MapPin, label: 'Campus Map', href: '/map' },
-      { icon: Users, label: 'nav.scan', href: '/scan' },
-    ],
-    lecturer: [
-      { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
-      { icon: BookOpen, label: 'nav.lectures', href: '/lectures' },
-      { icon: FileCheck, label: 'nav.gradebook', href: '/gradebook' },
-      { icon: Users, label: 'nav.attendance', href: '/attendance' },
-      { icon: FileCheck, label: 'nav.quizzes', href: '/quizzes' },
-      { icon: Microscope, label: 'nav.research', href: '/research' },
-      { icon: UserCheck, label: 'nav.faculty_hr', href: '/faculty-hr' },
-      { icon: Gavel, label: 'nav.governance', href: '/governance' },
-      { icon: HeartPulse, label: 'nav.health', href: '/health' },
-      { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
-      { icon: PackageSearch, label: 'nav.procurement', href: '/procurement' },
-      { icon: MapPin, label: 'Campus Map', href: '/map' },
-    ],
-    admin: [
-      { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
-      { icon: BarChart3, label: 'nav.analytics', href: '/analytics' },
-      { icon: Users, label: 'nav.staff', href: '/staff' },
-      { icon: FileCheck, label: 'nav.approvals', href: '/approvals' },
-      { icon: Microscope, label: 'nav.research', href: '/research' },
-      { icon: UserCheck, label: 'nav.faculty_hr', href: '/faculty-hr' },
-      { icon: Gavel, label: 'nav.governance', href: '/governance' },
-      { icon: HeartPulse, label: 'nav.health', href: '/health' },
-      { icon: UsersRound, label: 'nav.alumni', href: '/alumni' },
-      { icon: PackageSearch, label: 'nav.procurement', href: '/procurement' },
-      { icon: MapPin, label: 'Campus Map', href: '/map' },
-    ]
-  };
-
-  const currentNav = navItems[role];
+  const currentNav = (NAV_ITEMS as any)[role] || NAV_ITEMS.student;
 
   return (
     <div className="min-h-screen bg-mesh text-slate-900 flex flex-col md:flex-row overflow-hidden relative">
@@ -101,7 +108,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
           {currentNav.map((item, index) => {
             const isActive = pathname === item.href;
             return (
-              <Link key={index} href={item.href} onClick={() => setIsMobileMenuOpen(false)} prefetch={true}>
+              <Link key={index} href={item.href} onClick={() => setIsMobileMenuOpen(false)} prefetch={false}>
                 <motion.div
                   whileHover={{ scale: 1.02, x: language === 'ar' ? -4 : 4 }}
                   whileTap={{ scale: 0.98 }}

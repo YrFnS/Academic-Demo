@@ -40,19 +40,22 @@
     radial-gradient(at 100% 0%, hsla(45, 100%, 90%, 0.5) 0px, transparent 50%),
     radial-gradient(at 100% 100%, hsla(210, 100%, 95%, 1) 0px, transparent 50%),
     radial-gradient(at 0% 100%, hsla(45, 100%, 90%, 0.5) 0px, transparent 50%);
-  background-attachment: fixed;
+  /* Removed background-attachment: fixed to improve scrolling and navigation performance */
 }
 
 /* Glassmorphism Utilities */
 @layer utilities {
   .glass-panel {
-    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+    will-change: backdrop-filter;
   }
   .glass-card {
-    @apply bg-white/60 backdrop-blur-lg border border-white/40 shadow-sm hover:shadow-md transition-all duration-300;
+    @apply bg-white/60 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300;
+    will-change: transform;
   }
   .glass-sidebar {
-    @apply bg-oxford-blue/95 backdrop-blur-2xl border-e border-white/5 shadow-2xl;
+    @apply bg-oxford-blue/95 backdrop-blur-xl border-e border-white/5 shadow-2xl;
+    will-change: backdrop-filter;
   }
 }
 
