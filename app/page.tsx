@@ -55,7 +55,7 @@ export default function Dashboard() {
             
             <div className="mt-8">
               {role === 'student' ? (
-                <Link href="/scan" prefetch={false} className="inline-flex items-center gap-2 px-6 py-3 bg-academic-gold hover:bg-amber-500 text-oxford-blue font-semibold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-md">
+                <Link href="/scan" className="inline-flex items-center gap-2 px-6 py-3 bg-academic-gold hover:bg-amber-500 text-oxford-blue font-semibold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-md">
                   <QrCode className="w-5 h-5" /> {t('action.scan')}
                 </Link>
               ) : (

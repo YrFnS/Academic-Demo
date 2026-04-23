@@ -105,10 +105,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
         </div>
 
         <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scrollbar">
-          {(currentNav as NavItem[]).map((item, index) => {
+          {currentNav.map((item, index) => {
             const isActive = pathname === item.href;
             return (
-              <Link key={index} href={item.href} prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
+              <Link key={index} href={item.href} onClick={() => setIsMobileMenuOpen(false)} prefetch={false}>
                 <motion.div
                   whileHover={{ scale: 1.02, x: language === 'ar' ? -4 : 4 }}
                   whileTap={{ scale: 0.98 }}

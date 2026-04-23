@@ -1,6 +1,6 @@
 {
-  "name": "Academic Demo",
-  "description": "",
+  "name": "Sumer Academic Assistant",
+  "description": "University of Baghdad Academic Portal with Bologna process tracking, bilingual support, and campus management features.",
   "requestFramePermissions": [],
   "majorCapabilities": [],
   "C7": [],

@@ -1,20 +1,61 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Sumer Academic Assistant 🏛️
+### University of Baghdad Academic Portal
 
-# Run and deploy your AI Studio app
+A high-performance, bilingual, multi-role academic management system built for the University of Baghdad, optimized for the Bologna Process.
 
-This contains everything you need to run your app locally.
+## 🚀 Key Features
 
-View your app in AI Studio: https://ai.studio/apps/9ffe82b3-8cb5-40ab-a109-a7eefd2f6a48
+### 👤 Multi-Role Architecture
+- **Student Portal**: Access courses, grades, weekly schedules, financial statements, and housing requests.
+- **Lecturer Suite**: Manage attendance via dynamic QR codes, digital gradebooks (Bologna compliant), and research tracking.
+- **Head of Department (Admin)**: Real-time department analytics, staff workload management, and quality assurance (ABET readiness).
 
-## Run Locally
+### 🌍 Bilingual & Accessible
+- Full **Arabic & English** support with instant RTL/LTR switching.
+- High-contrast, accessibility-first design utilizing the **Cairo** font.
 
-**Prerequisites:**  Node.js
+### 📊 Bologna Process Integration
+- Real-time **ECTS (European Credit Transfer System)** tracking.
+- Automated daily assessment calculations (40%) and final grade management (60%).
+- "At-Risk" student detection based on attendance and performance.
 
+### 🏛️ Campus Services
+- **Smart Attendance**: Student presence recorded via one-time QR scanning.
+- **Interactive Campus Map**: Navigate university facilities with MapLibre GL.
+- **Service Modules**: Housing, Career Services, Research & Innovation, and Faculty HR.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠️ Technical Stack
+
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Motion (Framer Motion)](https://motion.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Maps**: [MapLibre GL](https://maplibre.org/)
+- **Language**: TypeScript
+
+## ⚡ Performance Optimization
+
+- **Edge Deployment Ready**: Configured for static export to be served from global Edge CDNs, reducing latency to <50ms.
+- **Instant Navigation**: Utilizes Next.js prefetching and global concurrent loading states (`loading.tsx`) for a seamless UX.
+- **Optimized Rendering**: Background mesh gradients and glassmorphism styling use `will-change` hints for smooth 60FPS transitions.
+
+## 📦 Getting Started
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+
+## 📄 License
+Custom proprietary software for the University of Baghdad academic ecosystem.
