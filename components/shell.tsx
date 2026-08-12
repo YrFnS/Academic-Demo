@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useAppContext } from './providers';
+import { Role, useAppContext } from './providers';
 import { 
   LayoutDashboard, 
   BookOpen, 
@@ -38,7 +38,7 @@ interface NavItem {
   href: string;
 }
 
-const NAV_ITEMS: Record<string, NavItem[]> = {
+const NAV_ITEMS: Record<Role, NavItem[]> = {
   student: [
     { icon: LayoutDashboard, label: 'nav.dashboard', href: '/' },
     { icon: BookOpen, label: 'nav.courses', href: '/courses' },
@@ -91,7 +91,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const pathname = usePathname();
 
-  const currentNav = (NAV_ITEMS as any)[role] || NAV_ITEMS.student;
+  const currentNav = NAV_ITEMS[role];
 
   return (
     <div className="min-h-screen bg-mesh text-slate-900 flex flex-col md:flex-row overflow-hidden relative">
